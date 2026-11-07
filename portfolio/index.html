@@ -140,12 +140,12 @@
       </div>
       <div class="tags"><span>Spring Cloud</span><span>OpenFeign</span><span>JWT</span><span>MySQL</span><span>React</span></div>
     </article>
-    <article class="proj iot-open">
+    <article class="proj">
       <div class="meta" data-fr="IoT, temps réel">IoT, real time</div>
       <h3 data-fr="Supervision IoT &amp; Incidents">IoT Supervision &amp; Incidents</h3>
       <p data-fr="Un système ESP32 et Spring Boot qui collecte les données de température et d’humidité, détecte automatiquement les incidents, alimente un dashboard temps réel via SSE et envoie des notifications email intelligentes.">An ESP32 and Spring Boot system that collects temperature and humidity data, detects incidents automatically, feeds a real-time dashboard over SSE and sends smart email notifications.</p>
-      <button class="abtn iot-toggle" id="iotToggle" type="button" aria-expanded="true" aria-controls="iotPanel"><span class="l-show" data-fr="Voir l’illustration">Show illustration</span><span class="l-hide" data-fr="Masquer l’illustration">Hide illustration</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
-      <div class="iot-panel" id="iotPanel">
+      <button class="abtn iot-toggle" id="iotToggle" type="button" aria-expanded="false" aria-controls="iotPanel"><span class="l-show" data-fr="Voir l’illustration">Show illustration</span><span class="l-hide" data-fr="Masquer l’illustration">Hide illustration</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="iot-panel" id="iotPanel" hidden>
       <svg class="iot-illustration" viewBox="0 0 420 270" role="img" aria-labelledby="iot-title iot-desc">
         <title id="iot-title" data-fr="Illustration du système de supervision IoT">IoT monitoring system illustration</title>
         <desc id="iot-desc" data-fr="Un capteur DHT22 relié à un ESP32 transmet les mesures à Spring Boot et à un tableau de bord en temps réel.">A DHT22 sensor connects to an ESP32, which sends readings to Spring Boot and a real-time dashboard.</desc>
