@@ -100,6 +100,8 @@ h2{font:800 clamp(28px,3.4vw,40px)/1.1 var(--disp);letter-spacing:-.03em;margin:
 .proj{position:relative;grid-column:span 2;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:12px;overflow:hidden;transition:border-color .25s,transform .25s}
 .proj::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(360px circle at var(--mx,50%) var(--my,50%),var(--accent-soft),transparent 70%)}
 .proj:hover{border-color:var(--accent);transform:translateY(-3px)}.proj:hover::after{opacity:1}
+.proj.iot-open{grid-column:span 6}
+.proj.event-arch-open{grid-column:span 6}
 .proj.big{grid-column:span 2}.proj.big.open{grid-column:span 6}
 .abtn{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font:600 14px var(--body);cursor:pointer;transition:border-color .2s}
 .abtn:hover{border-color:var(--accent)}
@@ -112,6 +114,70 @@ h2{font:800 clamp(28px,3.4vw,40px)/1.1 var(--disp);letter-spacing:-.03em;margin:
 .proj p{margin:0;color:var(--muted);font-size:15px}
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
 .tags span{font-size:12.5px;font-weight:500;padding:4px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.event-arch-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.event-arch-toggle[aria-expanded="true"] .l-show,.event-arch-toggle[aria-expanded="false"] .l-hide{display:none}
+.event-arch-panel[hidden]{display:none}
+.event-arch-figure{margin:8px 0 2px;max-width:100%;overflow-x:auto}
+.event-arch-svg{display:block;width:100%;min-width:760px;max-width:1000px;height:auto;margin:0 auto;font-family:var(--body)}
+.ev-canvas{fill:var(--bg);stroke:var(--line)}
+.ev-boundary{fill:color-mix(in srgb,var(--accent) 3%,var(--surface));stroke:color-mix(in srgb,var(--accent) 30%,var(--line));stroke-width:1.5}
+.ev-title{font:700 15px var(--disp);fill:var(--ink)}
+.ev-subtitle,.ev-boundary-label,.ev-link-label{font:600 9px var(--body);letter-spacing:.1em;fill:var(--muted)}
+.ev-boundary-label{fill:var(--accent)}
+.ev-flow,.ev-infra-link,.ev-openfeign{fill:none;stroke:var(--muted);stroke-width:1.5}
+.ev-infra-link{stroke-dasharray:4 5;opacity:.8}
+.ev-openfeign{stroke:var(--accent);stroke-width:1.7}
+.ev-node>rect:first-child{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.ev-node.ev-actor>rect:first-child{fill:color-mix(in srgb,var(--muted) 6%,var(--surface))}
+.ev-node.ev-frontend>rect:first-child{stroke:#26977f}
+.ev-node.ev-api>rect:first-child{stroke:var(--accent)}
+.ev-node.ev-service>rect:first-child{stroke:#cf8b26}
+.ev-node.ev-database>rect:first-child{stroke:#16829a}
+.ev-node.ev-config>rect:first-child,.ev-node.ev-registry>rect:first-child{stroke:#27855f}
+.ev-node>circle,.ev-node>path{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ev-node.ev-actor>circle,.ev-node.ev-actor>path{fill:var(--muted);stroke:none}
+.ev-node .ev-icon{fill:var(--accent-soft);stroke:var(--accent)}
+.ev-node .ev-icon-line{fill:none;stroke:var(--accent);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.ev-node-title{font:700 11px var(--disp);fill:var(--ink);text-anchor:middle}
+.ev-node-sub{font:500 9px var(--body);fill:var(--muted);text-anchor:middle}
+.ev-node-micro{font:600 7px var(--body);fill:var(--muted);text-anchor:middle;letter-spacing:.08em}
+.ev-registry-dot{fill:#27855f!important;stroke:none!important}
+@media(max-width:620px){.event-arch-figure{margin-right:-12px}}
+.iot-toggle[aria-expanded="true"] svg{transform:rotate(180deg)}
+.iot-toggle[aria-expanded="true"] .l-show,.iot-toggle[aria-expanded="false"] .l-hide{display:none}
+.iot-panel{width:100%}
+.iot-panel[hidden]{display:none}
+.proj.iot-open .iot-panel{margin:2px 0}
+.iot-illustration{display:block;width:100%;max-width:780px;height:auto;margin:4px auto;color:var(--ink);font-family:var(--body)}
+.iot-canvas{fill:var(--bg);stroke:var(--line)}
+.iot-kicker,.iot-live-label,.iot-footer{font:600 10px var(--body);letter-spacing:.08em;fill:var(--muted)}
+.iot-live-label{fill:#26977f}
+.iot-sensor{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.iot-sensor-line{fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round}
+.iot-wireline,.iot-antenna{fill:none;stroke:#f2bd55;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.iot-board{fill:#26977f;stroke:#187662;stroke-width:1.5}
+.iot-processor{fill:#17222b;stroke:#f2bd55;stroke-width:1}
+.iot-pin{fill:none;stroke:#f2bd55;stroke-width:1.4;stroke-linecap:round}
+.iot-label,.iot-micro,.iot-board-label,.iot-screen-kicker,.iot-screen-label,.iot-screen-value{font-family:var(--body);fill:var(--ink)}
+.iot-label{font-size:9px;font-weight:700}.iot-micro{font-size:7px;letter-spacing:.08em;fill:var(--muted)}
+.iot-board-label{font-size:10px;font-weight:700;fill:#fff}
+.iot-origin,.iot-packet{fill:var(--accent)}
+.iot-signal{fill:none;stroke:var(--accent);stroke-width:2;stroke-linecap:round;opacity:.65}
+.iot-dataflow{fill:none;stroke:var(--line);stroke-width:1.5;stroke-dasharray:3 4}
+.iot-packet{stroke:var(--bg);stroke-width:1.5}
+.iot-server,.iot-monitor{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.iot-server-slot{fill:var(--bg);stroke:var(--line);stroke-width:.7}
+.iot-screen{fill:var(--bg);stroke:var(--line);stroke-width:.7}
+.iot-screen-kicker{font-size:6px;fill:#26977f;font-weight:700}
+.iot-screen-label{font-size:6px;fill:var(--muted)}
+.iot-screen-value{font-size:9px;font-weight:700}
+.iot-chart{fill:none;stroke:var(--accent);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.iot-divider{stroke:var(--line);stroke-width:1}
+.iot-footer{font-size:8px}
+.iot-arrow{fill:none;stroke:var(--accent);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.iot-dataflow{animation:iot-dash 1.8s linear infinite}
+@keyframes iot-dash{to{stroke-dashoffset:-14}}
+@media(prefers-reduced-motion:reduce){.iot-dataflow{animation:none}}
 .topo{width:100%;height:auto;margin:6px 0 4px}
 .topo line{stroke:var(--line);stroke-width:1.5}
 .topo .n rect{fill:var(--bg);stroke:var(--line);stroke-width:1.2}

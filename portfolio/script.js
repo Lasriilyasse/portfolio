@@ -32,6 +32,12 @@
 /* architecture toggle */
 (function(){var b=document.getElementById('archToggle'),p=document.getElementById('archPanel'),c=b.closest('.proj');b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',o);p.hidden=!o;c.classList.toggle('open',o);if(o)p.scrollIntoView({block:'nearest',behavior:'smooth'})})})();
 
+/* ---- event-architecture-toggle ---- */
+(function(){var b=document.getElementById('eventArchToggle'),p=document.getElementById('eventArchPanel'),c=b.closest('.proj');b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',o);p.hidden=!o;c.classList.toggle('event-arch-open',o);if(o)c.scrollIntoView({block:'nearest',behavior:'smooth'})})})();
+
+/* ---- iot-illustration-toggle ---- */
+(function(){var b=document.getElementById('iotToggle'),p=document.getElementById('iotPanel'),c=b.closest('.proj');b.addEventListener('click',function(){var o=b.getAttribute('aria-expanded')!=='true';b.setAttribute('aria-expanded',o);p.hidden=!o;c.classList.toggle('iot-open',o);if(o)c.scrollIntoView({block:'nearest',behavior:'smooth'})})})();
+
 /* ---- lanyard ---- */
 /* lanyard physics: verlet rope + two-point rigid card, fixed timestep */
 (function(){

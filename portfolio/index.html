@@ -90,12 +90,123 @@
       <div class="meta">Microservices</div>
       <h3 data-fr="Plateforme d’Événements &amp; Réservations">Event &amp; Reservation Platform</h3>
       <p data-fr="Services User, Event et Reservation sécurisés par JWT et reliés via OpenFeign derrière Spring Cloud Gateway, avec découverte Eureka et Spring Cloud Config sur GitHub. Une base MySQL par service ; un frontend React appelle l’API via Axios.">User, Event and Reservation services secured with JWT and linked through OpenFeign behind Spring Cloud Gateway, with Eureka discovery and Spring Cloud Config on GitHub. One MySQL database per service; a React frontend calls the API through Axios.</p>
+      <button class="abtn event-arch-toggle" id="eventArchToggle" type="button" aria-expanded="false" aria-controls="eventArchPanel"><span class="l-show" data-fr="Voir l’architecture">Show architecture</span><span class="l-hide" data-fr="Masquer l’architecture">Hide architecture</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="event-arch-panel" id="eventArchPanel" hidden>
+        <figure class="event-arch-figure">
+          <svg class="event-arch-svg" viewBox="0 0 1000 520" role="img" aria-labelledby="event-arch-title event-arch-desc">
+            <title id="event-arch-title" data-fr="Architecture de la plateforme d’événements et de réservations">Event and reservation platform architecture</title>
+            <desc id="event-arch-desc" data-fr="React envoie les requêtes à une API Gateway Spring Cloud, qui route vers les services User, Event et Reservation. Chaque service possède sa base MySQL. Eureka gère la découverte et Spring Cloud Config charge la configuration depuis GitHub.">React sends requests to a Spring Cloud API Gateway, which routes to User, Event and Reservation services. Each service has its own MySQL database. Eureka handles discovery and Spring Cloud Config loads configuration from GitHub.</desc>
+            <defs>
+              <marker id="event-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 8 4 0 8z" fill="var(--muted)"/></marker>
+              <marker id="event-arrow-accent" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 8 4 0 8z" fill="var(--accent)"/></marker>
+            </defs>
+            <rect class="ev-canvas" x="1" y="1" width="998" height="518" rx="14"/>
+            <text class="ev-title" x="24" y="30" data-fr="PLATEFORME D’ÉVÉNEMENTS &amp; RÉSERVATIONS">EVENT &amp; RESERVATION PLATFORM</text>
+            <text class="ev-subtitle" x="24" y="48">SPRING CLOUD · MICROSERVICES</text>
+            <rect class="ev-boundary" x="164" y="67" width="810" height="326" rx="12"/>
+            <text class="ev-boundary-label" x="182" y="88" data-fr="APPLICATION">APPLICATION</text>
+
+            <path class="ev-flow" d="M124 242H191" marker-end="url(#event-arrow)"/>
+            <path class="ev-flow" d="M329 242H392" marker-end="url(#event-arrow)"/>
+            <path class="ev-flow" d="M537 220H570V132H612" marker-end="url(#event-arrow)"/>
+            <path class="ev-flow" d="M537 242H612" marker-end="url(#event-arrow)"/>
+            <path class="ev-flow" d="M537 264H570V352H612" marker-end="url(#event-arrow)"/>
+            <path class="ev-flow" d="M770 132H824" marker-end="url(#event-arrow)"/>
+            <path class="ev-flow" d="M770 242H824" marker-end="url(#event-arrow)"/>
+            <path class="ev-flow" d="M770 352H824" marker-end="url(#event-arrow)"/>
+            <path class="ev-openfeign" d="M612 228H594V338H612" marker-end="url(#event-arrow-accent)"/>
+            <text class="ev-link-label" x="579" y="286" transform="rotate(-90 579 286)">OPENFEIGN</text>
+            <path class="ev-infra-link" d="M683 378V406H458V432" marker-end="url(#event-arrow)"/>
+            <path class="ev-infra-link" d="M704 378V406H752V432" marker-end="url(#event-arrow)"/>
+            <text class="ev-link-label" x="546" y="402" data-fr="CONFIGURATION">CONFIG</text>
+            <text class="ev-link-label" x="727" y="402" data-fr="DÉCOUVERTE">DISCOVERY</text>
+
+            <g class="ev-node ev-actor"><rect x="22" y="207" width="102" height="70" rx="9"/><circle cx="73" cy="226" r="8"/><path d="M58 254c2-10 9-15 15-15s13 5 15 15"/><text x="73" y="268" class="ev-node-title" data-fr="UTILISATEUR">USER</text></g>
+            <g class="ev-node ev-frontend"><rect x="191" y="205" width="138" height="74" rx="9"/><rect class="ev-icon" x="246" y="216" width="28" height="20" rx="3"/><path class="ev-icon-line" d="M250 222h20m-20 5h14"/><text x="260" y="253" class="ev-node-title">FRONTEND</text><text x="260" y="267" class="ev-node-sub">React · Axios</text></g>
+            <g class="ev-node ev-api"><rect x="392" y="205" width="145" height="74" rx="9"/><path class="ev-icon-line" d="M445 222h35m-8-7 8 7-8 7M480 234v10"/><text x="464" y="257" class="ev-node-title">API GATEWAY</text><text x="464" y="270" class="ev-node-sub">JWT · ROUTING</text></g>
+
+            <g class="ev-node ev-service"><rect x="612" y="98" width="158" height="68" rx="9"/><text x="691" y="120" class="ev-node-title">USER SERVICE</text><text x="691" y="136" class="ev-node-sub">Profiles · JWT</text><text x="691" y="153" class="ev-node-micro">USER-MS</text></g>
+            <g class="ev-node ev-service"><rect x="612" y="208" width="158" height="68" rx="9"/><text x="691" y="230" class="ev-node-title">EVENT SERVICE</text><text x="691" y="246" class="ev-node-sub">Event catalog</text><text x="691" y="263" class="ev-node-micro">EVENT-MS</text></g>
+            <g class="ev-node ev-service"><rect x="612" y="318" width="158" height="68" rx="9"/><text x="691" y="340" class="ev-node-title">RESERVATION SERVICE</text><text x="691" y="356" class="ev-node-sub">Bookings · OpenFeign</text><text x="691" y="373" class="ev-node-micro">RESERVATION-MS</text></g>
+
+            <g class="ev-node ev-database"><rect x="824" y="98" width="128" height="68" rx="9"/><ellipse cx="888" cy="117" rx="15" ry="6"/><path d="M873 117v18c0 3 7 6 15 6s15-3 15-6v-18m-30 9c0 3 7 6 15 6s15-3 15-6"/><text x="888" y="155" class="ev-node-title">USER DB</text></g>
+            <g class="ev-node ev-database"><rect x="824" y="208" width="128" height="68" rx="9"/><ellipse cx="888" cy="227" rx="15" ry="6"/><path d="M873 227v18c0 3 7 6 15 6s15-3 15-6v-18m-30 9c0 3 7 6 15 6s15-3 15-6"/><text x="888" y="265" class="ev-node-title">EVENT DB</text></g>
+            <g class="ev-node ev-database"><rect x="824" y="318" width="128" height="68" rx="9"/><ellipse cx="888" cy="337" rx="15" ry="6"/><path d="M873 337v18c0 3 7 6 15 6s15-3 15-6v-18m-30 9c0 3 7 6 15 6s15-3 15-6"/><text x="888" y="375" class="ev-node-title">RESERVATION DB</text></g>
+
+            <g class="ev-node ev-config"><rect x="354" y="432" width="208" height="62" rx="9"/><path class="ev-icon-line" d="M373 449h22v6h-22zm0 11h22v6h-22z"/><text x="466" y="457" class="ev-node-title">CONFIG SERVER</text><text x="466" y="475" class="ev-node-sub">Spring Cloud Config · GitHub</text></g>
+            <g class="ev-node ev-registry"><rect x="648" y="432" width="208" height="62" rx="9"/><circle class="ev-registry-dot" cx="672" cy="457" r="4"/><circle class="ev-registry-dot" cx="685" cy="457" r="4"/><circle class="ev-registry-dot" cx="698" cy="457" r="4"/><text x="766" y="457" class="ev-node-title">EUREKA</text><text x="766" y="475" class="ev-node-sub">Service discovery</text></g>
+          </svg>
+        </figure>
+      </div>
       <div class="tags"><span>Spring Cloud</span><span>OpenFeign</span><span>JWT</span><span>MySQL</span><span>React</span></div>
     </article>
-    <article class="proj">
+    <article class="proj iot-open">
       <div class="meta" data-fr="IoT, temps réel">IoT, real time</div>
       <h3 data-fr="Supervision IoT &amp; Incidents">IoT Supervision &amp; Incidents</h3>
       <p data-fr="Un système ESP32 et Spring Boot qui collecte les données de température et d’humidité, détecte automatiquement les incidents, alimente un dashboard temps réel via SSE et envoie des notifications email intelligentes.">An ESP32 and Spring Boot system that collects temperature and humidity data, detects incidents automatically, feeds a real-time dashboard over SSE and sends smart email notifications.</p>
+      <button class="abtn iot-toggle" id="iotToggle" type="button" aria-expanded="true" aria-controls="iotPanel"><span class="l-show" data-fr="Voir l’illustration">Show illustration</span><span class="l-hide" data-fr="Masquer l’illustration">Hide illustration</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+      <div class="iot-panel" id="iotPanel">
+      <svg class="iot-illustration" viewBox="0 0 420 270" role="img" aria-labelledby="iot-title iot-desc">
+        <title id="iot-title" data-fr="Illustration du système de supervision IoT">IoT monitoring system illustration</title>
+        <desc id="iot-desc" data-fr="Un capteur DHT22 relié à un ESP32 transmet les mesures à Spring Boot et à un tableau de bord en temps réel.">A DHT22 sensor connects to an ESP32, which sends readings to Spring Boot and a real-time dashboard.</desc>
+        <defs>
+          <pattern id="iot-grid-pattern" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M18 0H0V18" fill="none" stroke="var(--line)" stroke-opacity=".35" stroke-width=".7"/></pattern>
+        </defs>
+        <rect class="iot-canvas" x="1" y="1" width="418" height="268" rx="12"/>
+        <rect x="2" y="2" width="416" height="266" rx="11" fill="url(#iot-grid-pattern)"/>
+        <text class="iot-kicker" x="18" y="25">FIELD SYSTEM / 01</text>
+        <circle cx="368" cy="21" r="3.5" fill="#3fc79a"/>
+        <text class="iot-live-label" x="378" y="25">LIVE</text>
+
+        <g aria-hidden="true">
+          <path class="iot-wireline" d="M46 111V158H87"/>
+          <rect class="iot-sensor" x="21" y="57" width="50" height="66" rx="5"/>
+          <path class="iot-sensor-line" d="M30 70h32M30 78h32M30 86h32M30 94h32M30 102h32"/>
+          <circle cx="29" cy="113" r="2" fill="#f2bd55"/><circle cx="46" cy="113" r="2" fill="#f2bd55"/><circle cx="63" cy="113" r="2" fill="#f2bd55"/>
+          <text class="iot-label" x="46" y="139" text-anchor="middle" data-fr="DHT22">DHT22</text>
+          <text class="iot-micro" x="46" y="151" text-anchor="middle" data-fr="CAPTEUR">SENSOR</text>
+
+          <rect class="iot-board" x="82" y="91" width="102" height="79" rx="7"/>
+          <path class="iot-antenna" d="M91 100h20v7H99v7h12"/>
+          <rect class="iot-processor" x="119" y="107" width="45" height="42" rx="3"/>
+          <path class="iot-pin" d="M124 103v4m9-4v4m9-4v4m9-4v4m9-4v4m-36 42v4m9-4v4m9-4v4m9-4v4m9-4v4"/>
+          <circle cx="174" cy="100" r="2.5" fill="#f2bd55"/>
+          <text class="iot-board-label" x="133" y="163" text-anchor="middle">ESP32</text>
+
+          <circle class="iot-origin" cx="191" cy="130" r="3.5"/>
+          <path class="iot-signal" d="M201 115q15 15 0 30M211 106q24 24 0 48M222 97q33 33 0 66"/>
+          <path class="iot-dataflow" d="M191 130H260"/>
+          <circle class="iot-packet" cx="0" cy="0" r="3.5"><animateMotion dur="2.8s" repeatCount="indefinite" path="M191 130H260"/></circle>
+
+          <rect class="iot-server" x="261" y="99" width="57" height="63" rx="7"/>
+          <rect class="iot-server-slot" x="270" y="109" width="39" height="12" rx="3"/>
+          <rect class="iot-server-slot" x="270" y="126" width="39" height="12" rx="3"/>
+          <rect class="iot-server-slot" x="270" y="143" width="39" height="9" rx="3"/>
+          <circle cx="302" cy="115" r="2" fill="#3fc79a"/><circle cx="302" cy="132" r="2" fill="#3fc79a"/>
+          <text class="iot-label" x="289" y="177" text-anchor="middle">SPRING BOOT</text>
+
+          <path class="iot-dataflow" d="M319 130H341"/>
+          <rect class="iot-monitor" x="341" y="78" width="62" height="91" rx="7"/>
+          <rect class="iot-screen" x="347" y="84" width="50" height="72" rx="3"/>
+          <circle cx="372" cy="162" r="2" fill="var(--muted)"/>
+          <text class="iot-screen-kicker" x="352" y="96">LIVE / SSE</text>
+          <text class="iot-screen-label" x="352" y="109" data-fr="TEMP.">TEMP.</text>
+          <text class="iot-screen-value" x="352" y="121">24.8°</text>
+          <path class="iot-chart" d="M352 132l6-3 5 2 6-7 5 3 6-5 5 2 5-6"/>
+          <text class="iot-screen-label" x="352" y="146" data-fr="HUMIDITÉ">HUMIDITY</text>
+          <text class="iot-screen-value" x="384" y="146">61%</text>
+          <text class="iot-label" x="372" y="184" text-anchor="middle" data-fr="TABLEAU DE BORD">DASHBOARD</text>
+        </g>
+
+        <path class="iot-divider" d="M18 207H402"/>
+        <text class="iot-footer" x="18" y="231" data-fr="CAPTURE">CAPTURE</text>
+        <path class="iot-arrow" d="M83 227h55m-5-4 5 4-5 4"/>
+        <text class="iot-footer" x="151" y="231">PROCESS</text>
+        <path class="iot-arrow" d="M214 227h55m-5-4 5 4-5 4"/>
+        <text class="iot-footer" x="282" y="231" data-fr="TEMPS RÉEL">REAL-TIME</text>
+        <circle cx="384" cy="227" r="3" fill="#3fc79a"/>
+      </svg>
+      </div>
       <div class="tags"><span>ESP32</span><span>Spring Boot</span><span>SSE</span></div>
     </article>
     <article class="proj half">
